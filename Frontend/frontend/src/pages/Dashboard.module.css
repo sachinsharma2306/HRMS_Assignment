@@ -1,0 +1,9 @@
+.title { font-size: 26px; }
+.sub   { color: var(--muted); font-size: 14px; margin-top: 4px; margin-bottom: 28px; }
+.loading { color: var(--muted); font-size: 14px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
