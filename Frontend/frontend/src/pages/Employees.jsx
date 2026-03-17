@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Plus, Trash2, Search ,Users} from 'lucide-react'
-
+import { Plus, Trash2, Search, Users, AlertCircle } from 'lucide-react'
 import toast from 'react-hot-toast'
 import api from '../api/axios'
 import Modal from '../components/Modal'
@@ -13,6 +12,7 @@ const empty = { employee_id: '', full_name: '', email: '', department: '' }
 export default function Employees() {
   const [employees, setEmployees] = useState([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(false)
   const [showModal, setShowModal] = useState(false)
   const [form, setForm] = useState(empty)
   const [errors, setErrors] = useState({})
@@ -21,8 +21,10 @@ export default function Employees() {
   const [deleteId, setDeleteId] = useState(null)
 
   const fetchEmployees = () => {
+    setError(false)
     api.get('/employees/')
       .then(r => setEmployees(r.data))
+      .catch(() => setError(true))
       .finally(() => setLoading(false))
   }
 
@@ -101,7 +103,25 @@ export default function Employees() {
 
       <div className={styles.tableWrap}>
         {loading ? (
-          <div className={s.emptyState}><p>Loading employees...</p></div>
+          <div className={s.emptyState}>
+            <p>Loading employees...</p>
+          </div>
+        ) : error ? (
+          <div className={s.emptyState} style={{ color: 'var(--danger)' }}>
+            <AlertCircle size={36} strokeWidth={1.2} />
+            <p>Failed to load employees. <button
+              onClick={fetchEmployees}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: 'var(--accent)',
+                cursor: 'pointer',
+                fontWeight: 500,
+                padding: 0,
+                fontSize: 'inherit'
+              }}
+            >Try again</button></p>
+          </div>
         ) : filtered.length === 0 ? (
           <div className={s.emptyState}>
             <Users size={36} strokeWidth={1.2} />
