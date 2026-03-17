@@ -15,15 +15,14 @@ A lightweight Human Resource Management System built as a full-stack assignment.
 
 ## API Endpoints
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | /api/employees/ | List all employees |
-| POST | /api/employees/ | Add new employee |
-| DELETE | /api/employees/:id/ | Delete employee |
-| GET | /api/attendance/ | List attendance records |
-| POST | /api/attendance/ | Mark attendance |
-| PATCH | /api/attendance/:id/ | Update attendance status |
-| GET | /api/dashboard/ | Dashboard summary stats |
+
+| GET  /api/employees/  List all employees 
+| POST  /api/employees/  Add new employee 
+| DELETE  /api/employees/:id/  Delete employee 
+| GET  /api/attendance/  List attendance records 
+| POST  /api/attendance/  Mark attendance 
+| PATCH  /api/attendance/:id/  Update attendance status 
+| GET  /api/dashboard/  Dashboard summary stats 
 
 ## Features
 - Add, view, delete employees
