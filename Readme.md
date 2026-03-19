@@ -1,16 +1,14 @@
 # HRMS Lite
 
-A lightweight Human Resource Management System built as a full-stack assignment.
+A lightweight Human Resource Management System .
 
 ## Live Links
-- Frontend: https://hrms-assignment-git-main-sachinsharma2306s-projects.vercel.app
 - Backend API: https://hrms-assignment-rokq.onrender.com/api
 
 ## Tech Stack
-- **Frontend**: React Vite
 - **Backend**: Django, Django REST Framework, django-cors-headers
 - **Database**: SQLite
-- **Deployment**: Vercel (Frontend), Render (Backend)
+- **Deployment**: Render (Backend)
 
 
 ## API Endpoints
@@ -26,8 +24,4 @@ A lightweight Human Resource Management System built as a full-stack assignment.
 
 ## Features
 - Add, view, delete employees
-- Mark and update daily attendance (Present / Absent)
-- Filter attendance by date and employee
-- Dashboard with live summary counts
-- Total present days shown per employee
 
