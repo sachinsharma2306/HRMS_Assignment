@@ -2,11 +2,13 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: 20px;
-  
+  margin-bottom: 18px;
 }
 
-.title { font-size: 26px; }
+.title {
+  font-size: 24px;
+  letter-spacing: -0.03em;
+}
 .sub   { color: var(--muted); font-size: 14px; margin-top: 4px; }
 
 .filters {

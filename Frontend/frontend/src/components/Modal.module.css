@@ -6,6 +6,7 @@
   place-items: center;
   z-index: 100;
   backdrop-filter: blur(2px);
+  animation: fadeIn 0.18s ease-out;
 }
 
 .box {
@@ -14,12 +15,17 @@
   width: 440px;
   max-width: calc(100vw - 32px);
   box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-  animation: pop 0.18s ease;
+  animation: pop 0.2s ease-out;
 }
 
 @keyframes pop {
   from { transform: scale(0.95); opacity: 0; }
   to   { transform: scale(1);    opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 .header {

@@ -1,5 +1,6 @@
+import { useEffect, useState } from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
-import { LayoutDashboard, Users, CalendarCheck } from 'lucide-react'
+import { LayoutDashboard, Users, CalendarCheck, Clock3 } from 'lucide-react'
 import styles from './Layout.module.css'
 
 const navItems = [
@@ -9,6 +10,16 @@ const navItems = [
 ]
 
 export default function Layout() {
+  const [now, setNow] = useState(new Date())
+
+  useEffect(() => {
+    const id = setInterval(() => setNow(new Date()), 1000)
+    return () => clearInterval(id)
+  }, [])
+
+  const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+  const dateString = now.toLocaleDateString([], { weekday: 'short', month: 'short', day: 'numeric' })
+
   return (
     <div className={styles.shell}>
       <aside className={styles.sidebar}>
@@ -30,7 +41,13 @@ export default function Layout() {
             </NavLink>
           ))}
         </nav>
-        <div className={styles.sidebarFooter}>Admin Panel</div>
+        <div className={styles.sidebarFooter}>
+          <div className={styles.timeRow}>
+            <Clock3 size={14} />
+            <span>{timeString}</span>
+          </div>
+          <div className={styles.dateText}>{dateString}</div>
+        </div>
       </aside>
 
       <main className={styles.main}>
